@@ -1,0 +1,21 @@
+{
+  "bounds": [
+    [
+      -8.22037845705968,
+      113.009461426492
+    ],
+    [
+      -8.152620087336244,
+      113.113173216885
+    ]
+  ],
+  "source": "PKM-PM Sister Village Team, map figure 2026",
+  "accuracy": "approximate image-graticule registration; not GPS or routing geometry",
+  "method": "RGB isolation and component filtering of green/orange road markings",
+  "source_pixel_crop": [
+    378,
+    53,
+    1803,
+    984
+  ]
+}
