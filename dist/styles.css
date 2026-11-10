@@ -231,11 +231,16 @@ body.high-contrast a:not(.button){text-decoration:underline;text-decoration-thic
 body.high-contrast :is(button,a,input,select,summary):focus-visible{outline:4px solid #b65500!important;outline-offset:3px!important}
 body.high-contrast :is(.hazard-card,.sister-phase,.sister-example-card,.map-source-card,.checklist-card,.quiz-card,.step-card,.research-stat){border-width:2px!important}
 
-/* At larger reading sizes, collapse the desktop navigation before it can cause sideways scrolling. */
-html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .desktop-nav{display:none}
-html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .menu-button{display:block;flex:none}
-html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .mobile-menu:not([hidden]){display:grid;gap:3px;padding:0 0 16px}
-html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .mobile-menu button{border:1px solid #dce8dc;background:#f3f6ef;padding:14px 18px;text-align:left;border-radius:10px;color:var(--forest);font-weight:800}
+/* Keep navigation visible at enlarged reading sizes: wrap it into a second header row. */
+@media(min-width:851px){
+  html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .header-inner{flex-wrap:wrap;row-gap:0;padding-top:7px}
+  html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .brand{flex:1 1 auto;min-width:0}
+  html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .header-actions{margin-left:auto;flex:none}
+  html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .desktop-nav{display:flex;order:3;flex:0 0 100%;justify-content:center;flex-wrap:wrap;gap:2px;padding:0 0 10px}
+  html:is([data-text-size="115"],[data-text-size="130"],[data-text-size="150"]) .nav-link{padding:10px 12px}
+}
+/* The hidden attribute must still hide the collapsible menu on mobile. */
+.mobile-menu[hidden]{display:none!important}
 html[data-text-size="150"] .brand{min-width:0}
 body.high-contrast main em{color:#080808!important;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 body.high-contrast .mobile-menu button{background:#fff!important;border:2px solid #080808!important;color:#080808!important}
